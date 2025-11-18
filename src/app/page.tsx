@@ -3,9 +3,7 @@ import Image from "next/image";
 import SkillBox from "@/components/box/SkillBox";
 import ProjectBox from "@/components/box/ProjectBox";
 import SocialBox from "@/components/box/SocialBox";
-import _Skills from "@/db/skills";
-import _Projects from "@/db/projects";
-import _Socials from "@/db/socials";
+import { skills, social_handles, projects } from "@/db"
 
 const page = () => {
   return (
@@ -23,19 +21,18 @@ const page = () => {
         <div className="w-[70%] mt-4">
           <h1 className="text-center text-[20px]">Abhishek Kr. Verma</h1>
           <h2 className="text-right text-[14px]">
-            ~ B.Sc, CS & AI Enthusiast, Defence Aspirant
+            ~ B.Sc, CS & AI Enthusiast
           </h2>
         </div>
       </div>
       <div className="flex flex-col">
         <h1 className="text-[30px] text-center">Skills</h1>
         <div className="grid grid-cols-3 gap-2">
-          {_Skills.map((p) => (
+          {Object.values(skills).map((p) => (
             <SkillBox
-              key={p.title}
-              className={p.class_name}
-              title={p.title}
-              imageUrl={p.img}
+              key={p.name}
+              title={p.name}
+              imageUrl={p.logo}
             />
           ))}
         </div>
@@ -44,15 +41,15 @@ const page = () => {
       <div className="flex flex-col">
         <h1 className="text-[40px] text-center">Projects</h1>
         <div className="grid gap-2">
-          {_Projects.map((p) => (
-            <ProjectBox title={p.title} href={p.url} key={p.url} />
+          {projects.map((p) => (
+            <ProjectBox title={p.title} href={p.website_url} key={p.title} />
           ))}
         </div>
       </div>
       <div className="flex flex-col">
         <h1 className="text-[40px] text-center">Socials</h1>
         <div className="flex flex-wrap justify-between items-center">
-          {_Socials.map((s) => (
+          {social_handles.map((s) => (
             <SocialBox title={s.title} href={s.url} key={s.title} />
           ))}
         </div>
