@@ -8,6 +8,9 @@ const inter = DM_Sans({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Abhishek Kr. Verma",
   description: "Portfolio",
+  icons: [
+    { url: "/profile.png" }
+  ]
 };
 
 import clsx from "clsx";
